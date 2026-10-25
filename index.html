@@ -1,0 +1,444 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>POMOLI — свежемолотый кофе и китайский чай в Краснодаре</title>
+<meta name="description" content="Кофе в зёрнах и молотый под ваш способ заваривания, китайский чай на развес. Доставка Яндексом в день заказа. Заказ в WhatsApp, Telegram, MAX или по телефону.">
+<meta name="theme-color" content="#2B1A12">
+<link rel="canonical" href="https://pomoli.ru/">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://pomoli.ru/">
+<meta property="og:title" content="POMOLI — кофе и чай с доставкой сегодня">
+<meta property="og:description" content="Свежемолотый кофе и китайский чай в Краснодаре. Доставка в день заказа.">
+<meta property="og:image" content="https://pomoli.ru/assets/og.jpg">
+<meta property="og:locale" content="ru_RU">
+<link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png">
+<link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+<link rel="preload" href="assets/fonts/Forum-400-cyrillic.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="assets/fonts.css">
+<style>
+/* Layout: тёмная «витрина» с аркой-окном для персонажа → светлые разделы, как бумажный пакет → тёмный низ с контактами. Один фирменный элемент — шкала помола. */
+:root{
+  --choc:#2B1A12;      /* тёмный шоколад, фон витрины */
+  --choc-2:#3A2519;    /* приподнятые поверхности на тёмном */
+  --cream:#F3E9D8;     /* крем, текст на тёмном и фон разделов */
+  --kraft:#E7D8BF;     /* крафт-пакет, второй светлый фон */
+  --leaf:#2F6B3A;      /* зелёный лист, главные кнопки */
+  --leaf-hi:#3B8248;
+  --wood:#8A5A35;      /* тёплое дерево, детали */
+  --ink:#2B1A12;
+  --ink-soft:#5E4636;
+  --line-dark:rgba(243,233,216,.16);
+  --line-light:rgba(43,26,18,.14);
+  --f-display:"Forum","Cormorant Garamond",Georgia,serif;
+  --f-body:"Golos Text",system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
+  --gutter:clamp(16px,4vw,40px);
+  --max:1120px;
+  color-scheme:light;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{animation:none!important;transition:none!important}}
+body{margin:0;background:var(--cream);color:var(--ink);font-family:var(--f-body);font-size:17px;line-height:1.55;-webkit-font-smoothing:antialiased}
+img{max-width:100%;display:block}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--leaf-hi);outline-offset:3px;border-radius:6px}
+.wrap{max-width:var(--max);margin:0 auto;padding-inline:var(--gutter)}
+h1,h2,h3{font-family:var(--f-display);font-weight:400;line-height:1.08;margin:0;text-wrap:balance;letter-spacing:.005em}
+h2{font-size:clamp(32px,5.2vw,52px)}
+p{margin:0}
+
+/* ---------- Витрина ---------- */
+.shop{background:var(--choc);color:var(--cream);position:relative;overflow:hidden}
+.shop::before{content:"";position:absolute;inset:0;background:radial-gradient(60% 50% at 78% 30%,rgba(138,90,53,.35),transparent 70%);pointer-events:none}
+.top{display:flex;align-items:center;justify-content:space-between;gap:16px;padding-block:14px;position:relative}
+.top img{width:52px;height:52px}
+.top a.call{font-weight:600;text-decoration:none;font-size:15px;font-variant-numeric:tabular-nums;border:1px solid var(--line-dark);padding:8px 14px;border-radius:999px;white-space:nowrap}
+.top a.call:hover{background:var(--choc-2)}
+.hero{display:grid;grid-template-columns:1.1fr .9fr;gap:clamp(24px,5vw,64px);align-items:end;padding-block:clamp(12px,3vw,40px) 0;position:relative}
+.hero-text{padding-bottom:clamp(32px,6vw,72px);min-width:0}
+.hero h1{font-size:clamp(38px,6vw,64px);margin-bottom:20px}
+.hero .lead{font-size:clamp(17px,1.9vw,20px);color:rgba(243,233,216,.82);max-width:34em;margin-bottom:28px}
+.today{display:inline-flex;align-items:center;gap:10px;font-size:15px;font-weight:500;margin-bottom:22px;color:var(--cream)}
+.today::before{content:"";width:9px;height:9px;border-radius:50%;background:#7BC48A;box-shadow:0 0 0 4px rgba(123,196,138,.18)}
+.ask{font-weight:600;margin-bottom:12px}
+.btns{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;max-width:460px}
+.btn{display:flex;align-items:center;justify-content:center;gap:10px;min-height:54px;padding:12px 16px;border-radius:14px;font-weight:600;font-size:16px;text-decoration:none;border:1px solid transparent;transition:background .15s,transform .15s}
+.btn svg{width:22px;height:22px;flex:none}
+.btn:active{transform:scale(.98)}
+.btn-main{background:var(--leaf);color:#fff}
+.btn-main:hover{background:var(--leaf-hi)}
+.btn-ghost{border-color:var(--line-dark);color:var(--cream);background:rgba(243,233,216,.04)}
+.btn-ghost:hover{background:var(--choc-2)}
+.hint{font-size:14px;color:rgba(243,233,216,.6);margin-top:12px}
+.arch{align-self:end;justify-self:center;width:min(100%,430px);aspect-ratio:576/860;border-radius:999px 999px 0 0;overflow:hidden;border:1px solid rgba(243,233,216,.22);border-bottom:0;background:#fff;max-width:100%}
+.arch img{width:100%;height:100%;object-fit:cover;object-position:center top}
+
+/* ---------- Помол ---------- */
+.grind{padding-block:clamp(56px,8vw,96px)}
+.grind-head{display:grid;grid-template-columns:1fr 1fr;gap:24px 48px;align-items:end;margin-bottom:32px}
+.grind-head p{color:var(--ink-soft);max-width:30em}
+.methods{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:20px}
+.methods button{font:inherit;font-size:15px;font-weight:500;padding:10px 16px;border-radius:999px;border:1px solid var(--line-light);background:transparent;color:var(--ink);cursor:pointer}
+.methods button[aria-pressed="true"]{background:var(--choc);color:var(--cream);border-color:var(--choc)}
+.methods button:hover:not([aria-pressed="true"]){background:var(--kraft)}
+.scale{display:grid;grid-template-columns:minmax(0,1.3fr) minmax(0,1fr);gap:0;border:1px solid var(--line-light);border-radius:20px;overflow:hidden;background:var(--kraft)}
+.scale canvas{width:100%;height:100%;min-height:220px;display:block;background:var(--kraft)}
+.scale-info{padding:clamp(20px,3vw,32px);display:flex;flex-direction:column;gap:12px;background:var(--cream);border-left:1px solid var(--line-light);min-width:0}
+.scale-info h3{font-size:clamp(28px,3.4vw,38px)}
+.scale-info .size{font-size:14px;color:var(--wood);font-weight:600}
+.scale-info p{color:var(--ink-soft)}
+.scale-info .btn{margin-top:auto;align-self:flex-start}
+
+/* ---------- Хиты ---------- */
+.hits{background:var(--kraft);padding-block:clamp(56px,8vw,96px)}
+.hits h2{margin-bottom:8px}
+.hits .sub{color:var(--ink-soft);margin-bottom:28px}
+.hit-list{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
+.hit{background:var(--cream);border-radius:18px;padding:20px;display:flex;flex-direction:column;gap:10px;min-width:0}
+.hit .kind{font-size:13px;font-weight:600;color:var(--wood)}
+.hit h3{font-size:26px}
+.hit p{font-size:15px;color:var(--ink-soft)}
+.hit .price{font-size:20px;font-weight:700;font-variant-numeric:tabular-nums;margin-top:auto;padding-top:6px}
+.hit .price small{font-size:14px;font-weight:500;color:var(--ink-soft)}
+.hit .order{display:flex;align-items:center;justify-content:center;gap:8px;min-height:46px;border-radius:12px;background:var(--choc);color:var(--cream);text-decoration:none;font-weight:600;font-size:15px}
+.hit .order:hover{background:var(--leaf)}
+.hit .order svg{width:18px;height:18px}
+
+/* ---------- Доверие ---------- */
+.trust{background:var(--leaf);color:var(--cream);padding-block:clamp(56px,8vw,96px)}
+.trust-grid{display:grid;grid-template-columns:.9fr 1.1fr;gap:clamp(32px,6vw,80px);align-items:start}
+.years{font-family:var(--f-display);font-size:clamp(120px,18vw,210px);line-height:.8;display:flex;align-items:flex-start;gap:12px}
+.years span{font-family:var(--f-body);font-size:clamp(17px,2vw,20px);line-height:1.3;padding-top:.6em;max-width:9em}
+.trust .was{margin-top:24px;color:rgba(243,233,216,.8);max-width:26em}
+.facts{list-style:none;margin:0;padding:0;display:grid;gap:0}
+.facts li{padding-block:20px;border-top:1px solid rgba(243,233,216,.22);display:grid;gap:4px}
+.facts li:last-child{border-bottom:1px solid rgba(243,233,216,.22)}
+.facts b{font-size:19px;font-weight:600}
+.facts span{color:rgba(243,233,216,.78)}
+
+/* ---------- Как заказать ---------- */
+.how{padding-block:clamp(56px,8vw,96px)}
+.how h2{margin-bottom:32px}
+.steps{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:24px;counter-reset:s}
+.steps li{counter-increment:s;display:grid;gap:8px;align-content:start;min-width:0}
+.steps li::before{content:counter(s);font-family:var(--f-display);font-size:56px;line-height:1;color:var(--wood)}
+.steps b{font-size:19px}
+.steps p{color:var(--ink-soft)}
+
+/* ---------- Низ: точки и контакты ---------- */
+.foot{background:var(--choc);color:var(--cream);padding-block:clamp(56px,8vw,96px) 32px}
+.foot h2{margin-bottom:28px}
+.foot-grid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(32px,5vw,64px)}
+.foot h3{font-size:28px;margin-bottom:16px}
+.places{display:grid;gap:12px}
+.place{display:flex;justify-content:space-between;align-items:center;gap:16px;padding:18px 20px;border:1px solid var(--line-dark);border-radius:16px;text-decoration:none}
+.place:hover{background:var(--choc-2)}
+.place b{display:block;font-weight:600}
+.place span{font-size:14px;color:rgba(243,233,216,.65)}
+.place .go{font-size:14px;font-weight:600;color:#9ED3A9;white-space:nowrap}
+.person{padding:18px 20px;border:1px solid var(--line-dark);border-radius:16px;display:grid;gap:12px}
+.person + .person{margin-top:12px}
+.phone{font-size:24px;font-weight:600;font-variant-numeric:tabular-nums;text-decoration:none;letter-spacing:.01em}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chips a{display:inline-flex;align-items:center;gap:8px;padding:8px 14px;border-radius:999px;background:rgba(243,233,216,.08);text-decoration:none;font-size:15px;font-weight:500}
+.chips a:hover{background:var(--leaf)}
+.chips svg{width:18px;height:18px}
+.bottom{margin-top:56px;padding-top:24px;border-top:1px solid var(--line-dark);display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:16px;font-size:14px;color:rgba(243,233,216,.6)}
+.bottom .slogan{font-family:var(--f-display);font-size:26px;color:var(--cream)}
+.bottom img{width:44px;height:44px}
+.bottom-left{display:flex;align-items:center;gap:14px}
+
+/* ---------- Липкая панель (телефон) ---------- */
+.dock{position:fixed;left:0;right:0;bottom:0;z-index:20;display:none;gap:8px;padding:10px 12px calc(10px + env(safe-area-inset-bottom,0px));background:rgba(43,26,18,.94);backdrop-filter:blur(8px);border-top:1px solid var(--line-dark);transform:translateY(110%);transition:transform .25s ease}
+.dock.on{transform:none}
+.dock a{flex:1;display:flex;align-items:center;justify-content:center;gap:8px;min-height:48px;border-radius:12px;text-decoration:none;font-weight:600;font-size:15px;color:var(--cream);background:var(--choc-2)}
+.dock a.main{background:var(--leaf);color:#fff}
+.dock svg{width:20px;height:20px}
+
+@media (max-width:860px){
+  .hero{grid-template-columns:1fr}
+  .hero-text{padding-bottom:28px}
+  .arch{width:min(78%,340px)}
+  .grind-head,.trust-grid,.foot-grid{grid-template-columns:1fr}
+  .scale{grid-template-columns:1fr}
+  .scale-info{border-left:0;border-top:1px solid var(--line-light)}
+  .hit-list{grid-template-columns:1fr}
+  .steps{grid-template-columns:1fr;gap:20px}
+  .steps li{grid-template-columns:48px 1fr;column-gap:12px}
+  .steps li::before{grid-row:span 2;font-size:44px}
+  .dock{display:flex}
+  .foot{padding-bottom:calc(32px + 76px + env(safe-area-inset-bottom,0px))}
+}
+@media (max-width:520px){
+  body{font-size:16px}
+  .hit-list{grid-template-columns:1fr}
+  .btn{font-size:15px;min-height:52px}
+}
+</style>
+</head>
+<body>
+
+<!-- Иконки -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="i-wa" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" d="M4.5 19.5l1.1-3.6A8 8 0 1 1 8.4 18.6z"/><path fill="currentColor" d="M9.2 8.3c.2-.4.5-.4.7-.4h.5c.2 0 .4 0 .5.4l.7 1.6c.1.2 0 .4-.1.6l-.5.6c-.1.1-.1.3 0 .5.5.9 1.3 1.7 2.3 2.2.2.1.4.1.5-.1l.6-.7c.2-.2.4-.2.6-.1l1.5.7c.3.1.4.3.3.6-.1.8-.9 1.5-1.7 1.5-2.6-.1-5.6-3-5.8-5.6 0-.7.2-1.3.4-1.8z"/></symbol>
+  <symbol id="i-tg" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" d="M21 4L3 11.2l6 2.2L19 7l-7.5 8.2.1 4.8 3-3.4 4 3.2z"/></symbol>
+  <symbol id="i-max" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" d="M12 3.5a8.5 8.5 0 0 0-7.4 12.7L3.5 20.5l4.4-1.1A8.5 8.5 0 1 0 12 3.5z"/><path fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" d="M8 15V9.5l4 3.5 4-3.5V15"/></symbol>
+  <symbol id="i-call" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" d="M6.6 3.5h3l1.5 4-2 1.3a11 11 0 0 0 6.1 6.1l1.3-2 4 1.5v3a2 2 0 0 1-2.2 2A17 17 0 0 1 4.6 5.7a2 2 0 0 1 2-2.2z"/></symbol>
+</svg>
+
+<header class="shop" id="top">
+  <div class="wrap">
+    <div class="top">
+      <img src="assets/logo.png" alt="POMOLI" width="52" height="52">
+      <a class="call" href="tel:+79286623839">8 928 662-38-39</a>
+    </div>
+    <div class="hero">
+      <div class="hero-text">
+        <h1>Свежемолотый кофе и&nbsp;китайский чай с&nbsp;доставкой сегодня</h1>
+        <p class="lead">Мелем зёрна под ваш способ заваривания прямо перед отправкой. Чай развешиваем из&nbsp;того же ассортимента, что стоит у&nbsp;нас на&nbsp;полках.</p>
+        <p class="today">Яндекс Доставка в&nbsp;день заказа</p>
+        <p class="ask">Напишите, что хотите, — подскажем и&nbsp;соберём заказ:</p>
+        <div class="btns" id="hero-btns">
+          <a class="btn btn-main" data-link="wa1" href="https://wa.me/79286623839"><svg><use href="#i-wa"/></svg>WhatsApp</a>
+          <a class="btn btn-main" data-link="tg" href="https://t.me/aik132006"><svg><use href="#i-tg"/></svg>Telegram</a>
+          <a class="btn btn-ghost" data-link="max" href="https://max.ru/"><svg><use href="#i-max"/></svg>MAX</a>
+          <a class="btn btn-ghost" href="tel:+79286623839"><svg><use href="#i-call"/></svg>Позвонить</a>
+        </div>
+        <p class="hint">Отвечаем быстро. Не знаете, что выбрать, — просто опишите, какой кофе или чай любите.</p>
+      </div>
+      <div class="arch"><img src="assets/char.webp" alt="Бариста POMOLI в зелёном фартуке у островка с кофе и чаем" width="576" height="860"></div>
+    </div>
+  </div>
+</header>
+
+<main>
+  <section class="grind wrap" aria-labelledby="grind-title">
+    <div class="grind-head">
+      <h2 id="grind-title">Под что смолоть?</h2>
+      <p>Помол решает половину вкуса. Выберите, в&nbsp;чём варите, и&nbsp;отправьте заказ — мы смелем ровно под этот способ.</p>
+    </div>
+    <div class="methods" role="group" aria-label="Способ заваривания" id="methods"></div>
+    <div class="scale">
+      <canvas id="grounds" aria-hidden="true"></canvas>
+      <div class="scale-info" aria-live="polite">
+        <span class="size" id="g-size"></span>
+        <h3 id="g-name"></h3>
+        <p id="g-text"></p>
+        <a class="btn btn-main" id="g-order" data-link="wa1" href="https://wa.me/79286623839"><svg><use href="#i-wa"/></svg>Заказать с этим помолом</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="hits" aria-labelledby="hits-title">
+    <div class="wrap">
+      <h2 id="hits-title">Чаще всего берут</h2>
+      <p class="sub">Нажмите «Заказать» — откроется WhatsApp с названием товара.</p>
+      <div class="hit-list" id="hit-list"></div>
+    </div>
+  </section>
+
+  <section class="trust" aria-labelledby="trust-title">
+    <div class="wrap trust-grid">
+      <div>
+        <h2 id="trust-title" class="years">5+ <span>лет продаём кофе и&nbsp;чай в&nbsp;Краснодаре</span></h2>
+        <p class="was">Раньше нас знали как «Кофе бар». Название новое, люди за&nbsp;прилавком и&nbsp;поставщики те&nbsp;же.</p>
+      </div>
+      <ul class="facts">
+        <li><b>Проверенные поставщики</b><span>Закупаем кофе и&nbsp;чай только у&nbsp;тех, в&nbsp;ком уверены.</span></li>
+        <li><b>Мелем при вас</b><span>От крупного под френч-пресс до&nbsp;армянского помола «в&nbsp;пыль» для турки.</span></li>
+        <li><b>Чай от&nbsp;200 до&nbsp;1500&nbsp;₽ за&nbsp;100&nbsp;г</b><span>Есть на&nbsp;каждый день и&nbsp;есть особенные, вроде «Рубиновой габы».</span></li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="how wrap" aria-labelledby="how-title">
+    <h2 id="how-title">Как заказать</h2>
+    <ol class="steps">
+      <li><b>Напишите или позвоните</b><p>WhatsApp, Telegram, MAX или звонок. Скажите, что нужно и&nbsp;под что смолоть.</p></li>
+      <li><b>Соберём заказ</b><p>Смелем кофе, взвесим чай, подтвердим сумму и&nbsp;адрес.</p></li>
+      <li><b>Привезём сегодня</b><p>Отправим Яндекс Доставкой в&nbsp;день заказа.</p></li>
+    </ol>
+  </section>
+</main>
+
+<footer class="foot" aria-labelledby="foot-title">
+  <div class="wrap">
+    <h2 id="foot-title">Заходите или пишите</h2>
+    <div class="foot-grid">
+      <div>
+        <h3>Наши точки в&nbsp;Краснодаре</h3>
+        <div class="places">
+          <a class="place" href="https://yandex.ru/maps/?text=%D0%9A%D1%80%D0%B0%D1%81%D0%BD%D0%BE%D0%B4%D0%B0%D1%80%2C%20%D1%83%D0%BB.%20%D0%9F%D0%B5%D1%82%D1%80%D0%B0%20%D0%9C%D0%B5%D1%82%D0%B0%D0%BB%D1%8C%D0%BD%D0%B8%D0%BA%D0%BE%D0%B2%D0%B0%2C%203%2F1%D0%90" target="_blank" rel="noopener">
+            <div><b>ул. Петра Метальникова, 3/1А</b><span>Работаем с 9:00 до 21:00</span></div><span class="go">На карте</span>
+          </a>
+          <a class="place" href="https://yandex.ru/maps/?text=%D0%9A%D1%80%D0%B0%D1%81%D0%BD%D0%BE%D0%B4%D0%B0%D1%80%2C%20%D1%83%D0%BB.%2040%20%D0%BB%D0%B5%D1%82%20%D0%9F%D0%BE%D0%B1%D0%B5%D0%B4%D1%8B%2C%20174" target="_blank" rel="noopener">
+            <div><b>ул. 40 лет Победы, 174</b><span>Работаем с 9:00 до 21:00</span></div><span class="go">На карте</span>
+          </a>
+        </div>
+      </div>
+      <div id="contacts">
+        <h3>Заказ по телефону и&nbsp;в&nbsp;мессенджерах</h3>
+        <div class="person">
+          <a class="phone" href="tel:+79286623839">8 928 662-38-39</a>
+          <div class="chips">
+            <a data-link="wa1" href="https://wa.me/79286623839"><svg><use href="#i-wa"/></svg>WhatsApp</a>
+            <a data-link="max" href="https://max.ru/"><svg><use href="#i-max"/></svg>MAX</a>
+            <a href="tel:+79286623839"><svg><use href="#i-call"/></svg>Позвонить</a>
+          </div>
+        </div>
+        <div class="person">
+          <a class="phone" href="tel:+79282177222">8 928 217-72-22</a>
+          <div class="chips">
+            <a data-link="wa2" href="https://wa.me/79282177222"><svg><use href="#i-wa"/></svg>WhatsApp</a>
+            <a data-link="tg" href="https://t.me/aik132006"><svg><use href="#i-tg"/></svg>Telegram</a>
+            <a href="tel:+79282177222"><svg><use href="#i-call"/></svg>Позвонить</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="bottom">
+      <div class="bottom-left"><img src="assets/logo.png" alt="" width="44" height="44"><span class="slogan">Бери. Вари. Живи.</span></div>
+      <span>POMOLI — кофе и чай на развес, Краснодар</span>
+    </div>
+  </div>
+</footer>
+
+<nav class="dock" id="dock" aria-label="Быстрый заказ">
+  <a class="main" data-link="wa1" href="https://wa.me/79286623839"><svg><use href="#i-wa"/></svg>WhatsApp</a>
+  <a data-link="tg" href="https://t.me/aik132006"><svg><use href="#i-tg"/></svg>Telegram</a>
+  <a href="tel:+79286623839"><svg><use href="#i-call"/></svg>Звонок</a>
+</nav>
+
+<script>
+(function(){
+  /* ===== Контакты: меняйте здесь ===== */
+  var LINKS = {
+    wa1: "https://wa.me/79286623839",
+    wa2: "https://wa.me/79282177222",
+    tg:  "https://t.me/aik132006",
+    max: "https://max.ru/" /* TODO: ссылка на профиль MAX вида https://max.ru/u/... (Профиль → Пригласить друзей) */
+  };
+  var BASE_TEXT = "Здравствуйте! Хочу заказать";
+
+  function withText(key, text){
+    var url = LINKS[key];
+    if (key === "wa1" || key === "wa2" || key === "tg") return url + "?text=" + encodeURIComponent(text);
+    return url;
+  }
+  function setLinks(scope, text){
+    (scope || document).querySelectorAll("[data-link]").forEach(function(a){
+      if (a.dataset.text) return;
+      a.href = withText(a.dataset.link, text);
+      a.target = "_blank"; a.rel = "noopener";
+    });
+  }
+  setLinks(document, BASE_TEXT + " кофе или чай.");
+
+  /* ===== Хиты: TODO заменить на реальные хиты и цены ===== */
+  var HITS = [
+    {kind:"Кофе для турки", name:"Армянский помол «Джамбо»", text:"Мелем «в пыль». Кофе в турке выходит густым, с плотной пенкой.", price:"160 ₽", unit:"/ 100 г"},
+    {kind:"Ароматизированный кофе", name:"Ирландские сливки", text:"Кофе со вкусом ирландских сливок. Оставим в зёрнах или смелем под ваш способ.", price:"290 ₽", unit:"/ 100 г"},
+    {kind:"Чай", name:"Гранатовый браслет", text:"Один из самых популярных чаёв в наших точках.", price:"300 ₽", unit:"/ 100 г"}
+  ];
+  var list = document.getElementById("hit-list");
+  HITS.forEach(function(h){
+    var el = document.createElement("article");
+    el.className = "hit";
+    el.innerHTML =
+      '<span class="kind"></span><h3></h3><p></p>' +
+      '<div class="price"><span class="pv"></span> <small></small></div>' +
+      '<a class="order" target="_blank" rel="noopener"><svg><use href="#i-wa"/></svg>Заказать</a>';
+    el.querySelector(".kind").textContent = h.kind;
+    el.querySelector("h3").textContent = h.name;
+    el.querySelector("p").textContent = h.text;
+    el.querySelector(".pv").textContent = h.price;
+    el.querySelector("small").textContent = h.unit;
+    el.querySelector(".order").href = withText("wa1", BASE_TEXT + " «" + h.name + "».");
+    list.appendChild(el);
+  });
+
+  /* ===== Шкала помола ===== */
+  var METHODS = [
+    {id:"beans",  label:"В зёрнах",    name:"Целые зёрна",     size:"Не мелем",                 r:0,   text:"Если мелете сами дома. Зёрна дольше хранят аромат.", msg:"кофе в зёрнах"},
+    {id:"french", label:"Френч-пресс", name:"Крупный помол",   size:"Частицы около 1 мм",       r:4.6, text:"Похоже на крупную соль. Не проходит через сито пресса и не горчит.", msg:"кофе, помол под френч-пресс"},
+    {id:"drip",   label:"Капельная",   name:"Средний помол",   size:"Около 0,7 мм",             r:3.2, text:"Для капельной кофеварки и пуровера. Вода проходит ровно, вкус чистый.", msg:"кофе, помол под капельную кофеварку"},
+    {id:"moka",   label:"Гейзерная",   name:"Средне-мелкий",   size:"Около 0,5 мм",             r:2.4, text:"Для гейзерной кофеварки. Мельче капельного, но крупнее эспрессо.", msg:"кофе, помол под гейзерную кофеварку"},
+    {id:"esp",    label:"Кофемашина",  name:"Мелкий помол",    size:"Около 0,3 мм",             r:1.6, text:"Для рожковой кофемашины. Даёт плотный эспрессо с кремой.", msg:"кофе, помол под кофемашину"},
+    {id:"turka",  label:"Турка",       name:"Армянский помол", size:"Мельче муки, «в пыль»",    r:0.75,text:"Самый мелкий помол. Кофе в турке получается густым, с плотной пенкой.", msg:"кофе, армянский помол под турку"}
+  ];
+  var box = document.getElementById("methods");
+  var cv = document.getElementById("grounds"), ctx = cv.getContext("2d");
+  var current = METHODS[5];
+
+  function rand(seed){ return function(){ seed = (seed * 16807) % 2147483647; return (seed - 1) / 2147483646; }; }
+  function draw(){
+    var rect = cv.getBoundingClientRect();
+    var dpr = Math.min(window.devicePixelRatio || 1, 2);
+    var w = Math.max(rect.width, 200), h = Math.max(rect.height, 220);
+    cv.width = w * dpr; cv.height = h * dpr;
+    ctx.setTransform(dpr,0,0,dpr,0,0);
+    ctx.fillStyle = "#E7D8BF"; ctx.fillRect(0,0,w,h);
+    var R = rand(42);
+    var tones = ["#2B1A12","#3E2618","#4F311F","#5C3A23","#6B4329"];
+    if (current.r === 0){
+      var n = Math.round(w*h/2600);
+      for (var i=0;i<n;i++){
+        var x=R()*w, y=R()*h, a=R()*Math.PI, s=9+R()*3;
+        ctx.save(); ctx.translate(x,y); ctx.rotate(a);
+        ctx.fillStyle = tones[(R()*tones.length)|0];
+        ctx.beginPath(); ctx.ellipse(0,0,s,s*.72,0,0,Math.PI*2); ctx.fill();
+        ctx.strokeStyle = "rgba(231,216,191,.55)"; ctx.lineWidth = 1.4;
+        ctx.beginPath(); ctx.moveTo(-s*.75,0); ctx.bezierCurveTo(-s*.2,-s*.3,s*.2,s*.3,s*.75,0); ctx.stroke();
+        ctx.restore();
+      }
+      return;
+    }
+    var r = current.r;
+    var count = Math.min(Math.round((w*h) / (r*r*7.5)), 26000);
+    for (var j=0;j<count;j++){
+      var px=R()*w, py=R()*h, rr=r*(.55+R()*.9);
+      ctx.fillStyle = tones[(R()*tones.length)|0];
+      if (rr < 1.1){ ctx.fillRect(px,py,rr*1.6,rr*1.6); continue; }
+      ctx.beginPath();
+      var k = 5 + ((R()*3)|0);
+      for (var q=0;q<k;q++){
+        var ang = q/k*Math.PI*2, d = rr*(.7+R()*.45);
+        var X = px+Math.cos(ang)*d, Y = py+Math.sin(ang)*d;
+        q ? ctx.lineTo(X,Y) : ctx.moveTo(X,Y);
+      }
+      ctx.closePath(); ctx.fill();
+    }
+  }
+  function select(m){
+    current = m;
+    box.querySelectorAll("button").forEach(function(b){ b.setAttribute("aria-pressed", b.dataset.id === m.id ? "true" : "false"); });
+    document.getElementById("g-name").textContent = m.name;
+    document.getElementById("g-size").textContent = m.size;
+    document.getElementById("g-text").textContent = m.text;
+    var o = document.getElementById("g-order");
+    o.dataset.text = "1";
+    o.href = withText("wa1", BASE_TEXT + " " + m.msg + ".");
+    o.target = "_blank"; o.rel = "noopener";
+    draw();
+  }
+  METHODS.forEach(function(m){
+    var b = document.createElement("button");
+    b.type = "button"; b.textContent = m.label; b.dataset.id = m.id;
+    b.addEventListener("click", function(){ select(m); });
+    box.appendChild(b);
+  });
+  select(current);
+  var t; window.addEventListener("resize", function(){ clearTimeout(t); t = setTimeout(draw, 120); });
+
+  /* ===== Липкая панель появляется, когда кнопки первого экрана ушли из вида ===== */
+  var dock = document.getElementById("dock"), hb = document.getElementById("hero-btns");
+  if ("IntersectionObserver" in window){
+    new IntersectionObserver(function(e){ dock.classList.toggle("on", !e[0].isIntersecting && e[0].boundingClientRect.top < 0); }).observe(hb);
+  } else { dock.classList.add("on"); }
+})();
+</script>
+
+</body>
+</html>
