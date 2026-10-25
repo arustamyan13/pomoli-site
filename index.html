@@ -148,6 +148,11 @@ p{margin:0}
 .bottom{margin-top:56px;padding-top:24px;border-top:1px solid var(--line-dark);display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:16px;font-size:14px;color:rgba(243,233,216,.6)}
 .bottom .slogan{font-family:var(--f-display);font-size:26px;color:var(--cream)}
 .bottom img{width:44px;height:44px}
+.social{display:flex;gap:8px;flex-wrap:wrap}
+.social a{padding:8px 14px;border-radius:999px;border:1px solid var(--line-dark);text-decoration:none;font-weight:500;color:var(--cream)}
+.social a:hover{background:var(--choc-2)}
+.legal{margin-top:20px;display:grid;gap:6px;font-size:13px;line-height:1.5;color:rgba(243,233,216,.5)}
+.hits .note{margin-top:16px;font-size:14px;color:var(--ink-soft)}
 .bottom-left{display:flex;align-items:center;gap:14px}
 
 /* ---------- Липкая панель (телефон) ---------- */
@@ -206,7 +211,7 @@ p{margin:0}
           <a class="btn btn-ghost" data-link="max" href="https://max.ru/"><svg><use href="#i-max"/></svg>MAX</a>
           <a class="btn btn-ghost" href="tel:+79286623839"><svg><use href="#i-call"/></svg>Позвонить</a>
         </div>
-        <p class="hint">Отвечаем быстро. Не знаете, что выбрать, — просто опишите, какой кофе или чай любите.</p>
+        <p class="hint">Отвечаем с&nbsp;9:00 до&nbsp;21:00. Не&nbsp;знаете, что выбрать, — просто опишите, какой кофе или чай любите.</p>
       </div>
       <div class="arch"><img src="assets/char.webp" alt="Бариста POMOLI в зелёном фартуке у островка с кофе и чаем" width="576" height="860"></div>
     </div>
@@ -214,6 +219,15 @@ p{margin:0}
 </header>
 
 <main>
+  <section class="hits" aria-labelledby="hits-title">
+    <div class="wrap">
+      <h2 id="hits-title">Чаще всего берут</h2>
+      <p class="sub">Нажмите «Заказать» — откроется WhatsApp с названием товара.</p>
+      <div class="hit-list" id="hit-list"></div>
+      <p class="note">Цены за&nbsp;100&nbsp;г указаны на&nbsp;момент публикации. Точную сумму заказа подтвердим в&nbsp;чате.</p>
+    </div>
+  </section>
+
   <section class="grind wrap" aria-labelledby="grind-title">
     <div class="grind-head">
       <h2 id="grind-title">Под что смолоть?</h2>
@@ -228,14 +242,6 @@ p{margin:0}
         <p id="g-text"></p>
         <a class="btn btn-main" id="g-order" data-link="wa1" href="https://wa.me/79286623839"><svg><use href="#i-wa"/></svg>Заказать с этим помолом</a>
       </div>
-    </div>
-  </section>
-
-  <section class="hits" aria-labelledby="hits-title">
-    <div class="wrap">
-      <h2 id="hits-title">Чаще всего берут</h2>
-      <p class="sub">Нажмите «Заказать» — откроется WhatsApp с названием товара.</p>
-      <div class="hit-list" id="hit-list"></div>
     </div>
   </section>
 
@@ -300,7 +306,11 @@ p{margin:0}
     </div>
     <div class="bottom">
       <div class="bottom-left"><img src="assets/logo.png" alt="" width="44" height="44"><span class="slogan">Бери. Вари. Живи.</span></div>
-      <span>POMOLI — кофе и чай на развес, Краснодар</span>
+      <div class="social"><a href="https://www.tiktok.com/@pomoli.ru" target="_blank" rel="noopener">TikTok</a><a href="https://www.instagram.com/pomoli.ru/" target="_blank" rel="noopener">Instagram*</a></div>
+    </div>
+    <div class="legal">
+      <p>ИП Арустамян Гайк Вагинакович<br>ИНН 263219179171, ОГРНИП 326237500482856</p>
+      <p>* Instagram принадлежит компании Meta, признанной экстремистской и&nbsp;запрещённой в&nbsp;России.</p>
     </div>
   </div>
 </footer>
